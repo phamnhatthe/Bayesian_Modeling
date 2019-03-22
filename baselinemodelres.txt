@@ -1,0 +1,17 @@
+Call:
+lm(formula = len ~ age)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-4.441 -2.200 -0.325  2.175  4.992 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  47.7425     0.7045  67.771  < 2e-16 ***
+age           0.9330     0.2572   3.627  0.00051 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.572 on 78 degrees of freedom
+Multiple R-squared:  0.1443,	Adjusted R-squared:  0.1333 
+F-statistic: 13.16 on 1 and 78 DF,  p-value: 0.0005096

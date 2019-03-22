@@ -1,0 +1,22 @@
+model{
+for (i in 1:20){
+  dat[i,1:4] ~ dmnorm(mu[i,1:4], omega[1:4,1:4])
+  for (j in 1:4){
+    mu[i,j] <- b0[id[i]] + b1[id[i]]*agez[i,j]
+  }
+}
+for (i in 1:20){
+  b0[i] ~ dnorm(m0, .001)
+  b1[i] ~ dnorm(m1, .01)
+}
+m0 ~ dnorm(48, .01)
+m1 ~ dnorm(0, .01)
+s2b ~ dgamma(2, .5)
+s2e ~ dgamma(3, .5)
+for (i in 1:4){
+  for (j in 1:4){
+    sigma[i,j] <- ifelse(i != j, s2b, s2b + s2e)
+  }
+}
+omega[1:4,1:4] <- inverse(sigma[1:4,1:4])
+}
